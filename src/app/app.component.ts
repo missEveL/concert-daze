@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ConcertSpect } from './concert-spect'
+import { ConcertSpect } from './models/concert-spect'
 import { ConcertSpectService } from './concert-spect.service'
 
 export interface ConcertSpectDisplay {
