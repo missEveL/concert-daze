@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Riptide Fest 2018 - Sunday",
+    "date": "12/02/18",
+    "venue": {
+      "name": "Ft Lauderdale Beach",
+      "location": "Ft Lauderdale Beach"
+    },
+    "images" : 12,
+    "lineUp": [
+      {
+        "band": {
+          "name": "311",
+          "genre": "rock"
+        },
+        "order": 1
+      },
+      {
+        "band": {
+          "name": "Live",
+          "genre": "rock"
+        },
+        "order": 2
+      },
+      {
+        "band": {
+          "name": "Everclear",
+          "genre": "rock"
+        },
+        "order": 3
+      }
+      ]
+  }
+]

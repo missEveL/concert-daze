@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "title": "Riptide Fest 2018 - Sunday",
+    "date": "12/02/18",
+    "venue": {
+      "name": "Ft Lauderdale Beach",
+      "location": "Ft Lauderdale Beach"
+    },
+    "images" : 12,
+    "lineUp": [
+      {
+        "band": {
+          "name": "311",
+          "genre": "rock"
+        },
+        "order": 1
+      },
+      {
+        "band": {
+          "name": "Live",
+          "genre": "rock"
+        },
+        "order": 2
+      },
+      {
+        "band": {
+          "name": "Everclear",
+          "genre": "rock"
+        },
+        "order": 3
+      }
+      ]
+  },
+  {
+    "id": 2,
+    "title": "Riptide Fest 2017",
+    "date": "12/02/17",
+    "venue": {
+      "name": "Ft Lauderdale Beach",
+      "location": "Ft Lauderdale Beach"
+    },
+    "images": 0,
+    "lineUp": [
+      {
+        "band": {
+          "name": "Cage the Elephant",
+          "genre": "rock"
+        },
+        "order": 1
+      },
+      {
+        "band": {
+          "name": "Weezer",
+          "genre": "rock"
+        },
+        "order": 2
+      },
+      {
+        "band": {
+          "name": "Iration",
+          "genre": "rock"
+        },
+        "order": 3
+      }
+      ]
+  },
+  {
+    "id": 3,
+    "title": "Riptide Fest 2016",
+    "date": "12/03/16",
+    "venue": {
+      "name": "Ft Lauderdale Beach",
+      "location": "Ft Lauderdale Beach"
+    },
+    "lineUp": [
+      {
+        "band": {
+          "name": "Awolnation",
+          "genre": "rock"
+        },
+        "order": 1
+      },
+      {
+        "band": {
+          "name": "Sublime with Rome",
+          "genre": "rock"
+        },
+        "order": 2
+      },
+      {
+        "band": {
+          "name": "Pepper",
+          "genre": "rock"
+        },
+        "order": 3
+      }
+      ]
+  }
+]
