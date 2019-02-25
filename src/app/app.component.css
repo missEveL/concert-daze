@@ -11,21 +11,9 @@
   font-size: 250%;
 }
 
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-
-.tile-image {
-  width:100%;
-  height: auto;
-}
-
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
+.centerDiv {
+  width: 80%;
+  margin: 0 auto;
 }
 
 img {

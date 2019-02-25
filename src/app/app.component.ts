@@ -23,6 +23,7 @@ export class AppComponent {
   showMain: boolean = true;
   concertSpect: ConcertSpect;
   concertSpectImages: string[] = [];
+  randNum: number = 0;
 
   constructor(private concertSpectService: ConcertSpectService){}
 
@@ -36,28 +37,27 @@ export class AppComponent {
 
   setConcertSpectDisplay(cSpects: ConcertSpect[]){
     for (let i = 0; i < cSpects.length; i ++) {
-      let hasImages = cSpects[i].images > 0;
-      let concertDisp: ConcertSpectDisplay = {
-        concertSpect: cSpects[i],
-        backgroundColor: this.randomColor(),
-        headerImage: (hasImages)?
-        this.concertSpectService.getImagePath(cSpects[i].id) + "/0.jpg":
-        null,
-        colSpan: (hasImages) ? this.gridCols : 1
-      };
-
-      this.concertSpects.push(concertDisp);
+      let hasImages = cSpects[i].images.length > 0;
+      let concertDisp: ConcertSpectDisplay =
+      {
+       concertSpect: cSpects[i],
+       backgroundColor: this.randomColor(),
+       headerImage: hasImages ?
+       this.concertSpectService.getImagePath(cSpects[i].id) + '/' + cSpects[i].images[cSpects[i].images.length-1]
+       : null,
+       colSpan: hasImages ? this.gridCols : 1
+     }
+     this.concertSpects.push(concertDisp);
     }
   }
 
   tileClick(cSpectId: number){
     this.concertSpect = this.concertSpects[cSpectId-1].concertSpect;
-    const numberOfImages = this.concertSpect.images;
+    const numberOfImages = this.concertSpect.images.length - 1;
     const imagePath = this.concertSpectService.getImagePath(cSpectId);
-    for (let i=0; i< numberOfImages; i++) {
-      this.concertSpectImages.push(imagePath + "/" + i + ".jpg");
+    for (let i=0; i<= numberOfImages; i++) {
+        this.concertSpectImages.push(imagePath + '/' + this.concertSpect.images[i]);
     }
-    console.log(this.concertSpectImages);
     this.showMain = false;
   }
 
@@ -68,7 +68,9 @@ export class AppComponent {
 
   randomColor(){
     const colors = ['lightblue','lightgreen','lightpink', '#DDBDF1'];
-    const randNum = Math.floor(Math.random() * colors.length) + 1;
+    let randNum = Math.floor(Math.random() * colors.length) + 1;
+    if (randNum === this.randNum){randNum ++;}
+    this.randNum = randNum;
     return colors[randNum];
   }
 }

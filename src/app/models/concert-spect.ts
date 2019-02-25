@@ -7,10 +7,8 @@ title: string;
 date: string;
 venue: Venue;
 lineUp: Act[];
-images: number;
+images: string[];
 
-constructor (){
-  this.images = 0;
-}
+constructor (){}
 
 }

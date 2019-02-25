@@ -22,6 +22,7 @@
 </mat-grid-list>
 </div>
 <div *ngIf="!showMain">
+  <div>
 <mat-toolbar color="accent" class="toolbar">
   <div class="title">
     {{ concertSpect.title }}
@@ -30,9 +31,23 @@
     Back
   </button>
   </mat-toolbar>
-  <ngb-carousel >
+  <div class="centerDiv">
+  <ngb-carousel>
   <ng-template ngbSlide *ngFor="let concertSpectImage of concertSpectImages">
     <img [src]="concertSpectImage">
   </ng-template>
 </ngb-carousel>
 </div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://concertdaze.com"> ConcertDaze.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
