@@ -1,0 +1,9 @@
+<div *ngIf="concertSpect" [style.background]="backgroundColor">
+<div class="centerDiv">
+<ngb-carousel>
+<ng-template ngbSlide *ngFor="let concertSpectImage of concertSpectImages">
+  <img [src]="concertSpectImage">
+</ng-template>
+</ngb-carousel>
+</div>
+</div>

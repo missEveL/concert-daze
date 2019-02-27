@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { ConcertSpect } from './models/concert-spect'
-import { ConcertSpectService } from './services/concert-spect.service'
+import { ConcertSpect } from '../models/concert-spect'
+import { ConcertSpectService } from '../services/concert-spect.service'
 
 export interface ConcertSpectDisplay {
   concertSpect: ConcertSpect;
@@ -9,25 +9,26 @@ export interface ConcertSpectDisplay {
   headerImage: string | null;
   colSpan: number;
 }
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-concert-spects',
+  templateUrl: './concert-spects.component.html',
+  styleUrls: ['./concert-spects.component.css']
 })
+export class ConcertSpectsComponent implements OnInit {
 
-export class AppComponent {
-  title: string = '🤘🤩🤘 Concert Daze 🤘🤩🤘';
+  maintitle: string = '🤘🤩🤘 Concert Daze 🤘🤩🤘';
+  title: string = '';
   gridCols: number = 1;
   concertSpects: ConcertSpectDisplay[] = [];
-  showMain: boolean = true;
   concertSpect: ConcertSpect;
   concertSpectImages: string[] = [];
   randNum: number = 0;
+  backgroundColor: string ='';
 
   constructor(private concertSpectService: ConcertSpectService){}
 
   ngOnInit(){
+    this.title = this.maintitle;
     this.concertSpectService.getJSON()
     .subscribe(cSpects =>
       {
@@ -53,17 +54,19 @@ export class AppComponent {
 
   tileClick(cSpectId: number){
     this.concertSpect = this.concertSpects[cSpectId-1].concertSpect;
+    this.title =`${this.concertSpect.title} ${this.concertSpect.date}`;
+    this.backgroundColor = this.randomColor();
     const numberOfImages = this.concertSpect.images.length - 1;
     const imagePath = this.concertSpectService.getImagePath(cSpectId);
     for (let i=0; i<= numberOfImages; i++) {
         this.concertSpectImages.push(imagePath + '/' + this.concertSpect.images[i]);
     }
-    this.showMain = false;
   }
 
   goBack(){
-    this.showMain = true;
+    this.title = this.maintitle;
     this.concertSpectImages = [];
+    this.concertSpect = null;
   }
 
   randomColor(){

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ConcertSpectService } from './concert-spect.service';
+import { ConcertSpectService } from './services/concert-spect.service';
 
 describe('ConcertSpectService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
