@@ -11,10 +11,12 @@ export class ConcertSpectDetailComponent implements OnInit {
   @Input() concertSpect: ConcertSpect;
   @Input() concertSpectImages: string[];
   @Input() backgroundColor: string;
+  @Input() showSlides: boolean;
+
+  cols: number = 4;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

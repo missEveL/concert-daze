@@ -24,6 +24,8 @@ export class ConcertSpectsComponent implements OnInit {
   concertSpectImages: string[] = [];
   randNum: number = 0;
   backgroundColor: string ='';
+  showSlides: boolean = false;
+  viewTitle: string = "Slide"
 
   constructor(private concertSpectService: ConcertSpectService){}
 
@@ -63,13 +65,17 @@ export class ConcertSpectsComponent implements OnInit {
     }
   }
 
-  goBack(){
+  public toggleSlides () {
+    return this.showSlides = !this.showSlides;
+  }
+
+  public goBack(){
     this.title = this.maintitle;
     this.concertSpectImages = [];
     this.concertSpect = null;
   }
 
-  randomColor(){
+  public randomColor(){
     const colors = ['lightblue','lightgreen','lightpink', '#DDBDF1'];
     let randNum = Math.floor(Math.random() * colors.length) + 1;
     if (randNum === this.randNum){randNum ++;}
