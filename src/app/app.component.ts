@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-import { ConcertSpect } from './models/concert-spect'
-import { ConcertSpectService } from './concert-spect.service'
+import { ConcertSpect } from './models/concert-spect';
+import { ConcertSpectService } from './concert-spect.service';
 
 export interface ConcertSpectDisplay {
   concertSpect: ConcertSpect;
@@ -17,31 +17,30 @@ export interface ConcertSpectDisplay {
 })
 
 export class AppComponent {
-  title: string = '🤘🤩🤘 Concert Daze 🤘🤩🤘';
-  gridCols: number = 1;
+  title = '🤘🤩🤘 Concert Daze 🤘🤩🤘';
+  gridCols = 1;
   concertSpects: ConcertSpectDisplay[] = [];
-  showMain: boolean = true;
+  showMain = true;
   concertSpect: ConcertSpect;
   concertSpectImages: string[] = [];
 
-  constructor(private concertSpectService: ConcertSpectService){}
+  constructor(private concertSpectService: ConcertSpectService) {}
 
-  ngOnInit(){
+  OnInit() {
     this.concertSpectService.getJSON()
-    .subscribe(cSpects =>
-      {
+    .subscribe(cSpects => {
         this.setConcertSpectDisplay(cSpects);
       });
   }
 
-  setConcertSpectDisplay(cSpects: ConcertSpect[]){
+  setConcertSpectDisplay(cSpects: ConcertSpect[]) {
     for (let i = 0; i < cSpects.length; i ++) {
-      let hasImages = cSpects[i].images > 0;
-      let concertDisp: ConcertSpectDisplay = {
+      const hasImages = cSpects[i].images > 0;
+      const concertDisp: ConcertSpectDisplay = {
         concertSpect: cSpects[i],
         backgroundColor: this.randomColor(),
-        headerImage: (hasImages)?
-        this.concertSpectService.getImagePath(cSpects[i].id) + "/0.jpg":
+        headerImage: (hasImages) ?
+        this.concertSpectService.getImagePath(cSpects[i].id) + '/0.jpg' :
         null,
         colSpan: (hasImages) ? this.gridCols : 1
       };
@@ -50,24 +49,24 @@ export class AppComponent {
     }
   }
 
-  tileClick(cSpectId: number){
-    this.concertSpect = this.concertSpects[cSpectId-1].concertSpect;
+  tileClick(cSpectId: number) {
+    this.concertSpect = this.concertSpects[cSpectId - 1].concertSpect;
     const numberOfImages = this.concertSpect.images;
     const imagePath = this.concertSpectService.getImagePath(cSpectId);
-    for (let i=0; i< numberOfImages; i++) {
-      this.concertSpectImages.push(imagePath + "/" + i + ".jpg");
+    for (let i = 0; i < numberOfImages; i++) {
+      this.concertSpectImages.push(imagePath + '/' + i + '.jpg');
     }
     console.log(this.concertSpectImages);
     this.showMain = false;
   }
 
-  goBack(){
+  goBack() {
     this.showMain = true;
     this.concertSpectImages = [];
   }
 
-  randomColor(){
-    const colors = ['lightblue','lightgreen','lightpink', '#DDBDF1'];
+  randomColor() {
+    const colors = ['lightblue', 'lightgreen', 'lightpink', '#DDBDF1'];
     const randNum = Math.floor(Math.random() * colors.length) + 1;
     return colors[randNum];
   }
