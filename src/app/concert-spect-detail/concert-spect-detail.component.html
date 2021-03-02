@@ -1,0 +1,16 @@
+<div *ngIf="concertSpect" [style.background]="backgroundColor">
+<ngb-carousel *ngIf="showSlides">
+<ng-template ngbSlide *ngFor="let concertSpectImage of concertSpectImages">
+  <img [src]="concertSpectImage">
+</ng-template>
+</ngb-carousel>
+<mat-grid-list *ngIf="!showSlides" cols="{{cols}}" rowHeight="150px" gutterSize="5px">
+<mat-grid-tile
+    *ngFor="let concertSpectImage of concertSpectImages"
+    [colspan]="1"
+    [style.background]="backgroundColor"
+    >
+    <img src="{{concertSpectImage}}" />
+</mat-grid-tile>
+</mat-grid-list>
+</div>

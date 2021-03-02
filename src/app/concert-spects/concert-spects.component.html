@@ -1,0 +1,33 @@
+<mat-toolbar color="accent" class="toolbar">
+  <button *ngIf="concertSpect" mat-raised-button (click)="goBack()">
+    Back
+  </button>
+  <div class="title">
+  {{ title }}
+</div>
+<button *ngIf="concertSpect" mat-raised-button (click)="toggleSlides()">
+  View {{showSlides? 'Grid' : 'Slideshow'}} 
+</button>
+</mat-toolbar>
+<mat-grid-list *ngIf="!concertSpect" cols="{{gridCols}}" rowHeight="500px">
+<mat-grid-tile
+    *ngFor="let concertSpectDisplay of concertSpects"
+    [colspan]="concertSpectDisplay.colSpan"
+    [style.background]="concertSpectDisplay.backgroundColor"
+    (click)="tileClick(concertSpectDisplay.concertSpect.id)">
+    <img *ngIf="concertSpectDisplay.headerImage !== null"
+    src="{{concertSpectDisplay.headerImage}}" />
+    <mat-grid-tile-footer>
+      {{concertSpectDisplay.concertSpect.title}}
+
+      {{concertSpectDisplay.concertSpect.date}}
+    </mat-grid-tile-footer>
+</mat-grid-tile>
+</mat-grid-list>
+
+<app-concert-spect-detail
+[concertSpect]="concertSpect"
+[concertSpectImages]="concertSpectImages"
+[backgroundColor]="backgroundColor"
+[showSlides]="showSlides"
+></app-concert-spect-detail>
