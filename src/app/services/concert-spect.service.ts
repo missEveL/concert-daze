@@ -16,7 +16,7 @@ export class ConcertSpectService {
     }
 
     public getJSON(): Observable<any> {
-         return this.http.get("assets/concert-data.json");
+         return this.http.get('assets/concert-data.json');
 
      }
 
