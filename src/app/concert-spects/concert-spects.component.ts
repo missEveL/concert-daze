@@ -82,4 +82,9 @@ export class ConcertSpectsComponent implements OnInit {
     this.randNum = randNum;
     return colors[randNum];
   }
+
+  public showSlidesChange(showSlides: boolean) {
+    console.log(showSlides);
+    this.showSlides = showSlides;
+  }
 }

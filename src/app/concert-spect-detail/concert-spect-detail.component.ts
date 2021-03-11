@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConcertSpect } from '../models/concert-spect'
 
 @Component({
@@ -12,11 +12,20 @@ export class ConcertSpectDetailComponent implements OnInit {
   @Input() concertSpectImages: string[];
   @Input() backgroundColor: string;
   @Input() showSlides: boolean;
+  @Output() showSlidesChange = new EventEmitter();
 
   cols: number = 4;
+  ind: number = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  public openSlide(index:number) {
+    this.showSlides = true;
+    this.ind = index;
+    this.showSlidesChange.emit(this.showSlides);
+  }
+
 }

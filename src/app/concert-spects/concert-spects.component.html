@@ -6,10 +6,10 @@
   {{ title }}
 </div>
 <button *ngIf="concertSpect" mat-raised-button (click)="toggleSlides()">
-  View {{showSlides? 'Grid' : 'Slideshow'}} 
+  View {{showSlides? 'Grid' : 'Slideshow'}}
 </button>
 </mat-toolbar>
-<mat-grid-list *ngIf="!concertSpect" cols="{{gridCols}}" rowHeight="500px">
+<mat-grid-list *ngIf="!concertSpect" cols="{{gridCols}}" rowHeight="3:1">
 <mat-grid-tile
     *ngFor="let concertSpectDisplay of concertSpects"
     [colspan]="concertSpectDisplay.colSpan"
@@ -30,4 +30,5 @@
 [concertSpectImages]="concertSpectImages"
 [backgroundColor]="backgroundColor"
 [showSlides]="showSlides"
+(showSlidesChange)="showSlidesChange($event)"
 ></app-concert-spect-detail>

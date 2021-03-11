@@ -1,3 +1,10 @@
+.toolbar {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 10000;
+}
+
 .title {
   margin: 0 auto;
   color: #FF5733;
@@ -5,12 +12,12 @@
   font-size: 250%;
 }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
 button {
   background-color: #FF5733;
   color: #ffd740;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
